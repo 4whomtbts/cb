@@ -1,0 +1,38 @@
+# It defines behavior of circuitbreaker
+# soft : Stop all containers only
+# hard : Stop(turn off) host machine
+nodeName: server1
+type: master
+port: 5000
+
+circuitBreakerLevel: soft
+watchIntervalSec: 1500
+
+email: ailabcircuitbreaker.dgu@gmail.com
+emailPassword: 1234
+emailReceivers:
+  - 4whomtbts@gmail.com
+
+nodes:
+  - http://localhost:5000
+
+admins:
+  - name: jun
+    email: 4whomtbts@gmail.com
+    phone: 01012345678
+
+exporters:
+  - name: node_exporter
+    label: node_exporter
+    url: http://localhost:9093/metrics
+    config:
+      maxCpuTemp: 90
+      mailIntervalSec: 1800
+  - name: dcgm_exporter
+    label: dcgm_exporter
+    url: http://localhost:9094/metrics
+    config:
+      maxGpuTemp: 90
+      mailIntervalSec: 1800
+
+
