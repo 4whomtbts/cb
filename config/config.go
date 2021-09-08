@@ -7,7 +7,6 @@ type CircuitBreakerConfig struct {
 	Type string `yaml:"type"`
 	Port int `yaml:"port"`
 	CircuitBreakerLevel string `yaml:"circuitBreakerLevel"`
-	WatchIntervalSec       int `yaml:"watchIntervalSec"`
 	HealthCheckIntervalSec int `yaml:"healthCheckIntervalSec"`
 	CircuitBreakerIntervalSec int `yaml:"circuitBreakerIntervalSec"`
 	MasterServer string `yaml:"masterServer"`

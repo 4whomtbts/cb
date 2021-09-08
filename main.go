@@ -34,6 +34,8 @@ func main() {
 		m := &master.Master{
 			MailSender: util.NewMailSender(config.NodeName, config.Email, config.EmailPassword, config.EmailReceivers),
 		}
+		logger.Infof("healthCheckIntervalSec = %d, circuitBreakerIntervalSec = %d",
+			config.HealthCheckIntervalSec, config.CircuitBreakerIntervalSec)
 		m.Start(config.Nodes, config.HealthCheckIntervalSec, config.CircuitBreakerIntervalSec)
 	} else if config.Type == "node" {
 		http.HandleFunc("/handshake", func(w http.ResponseWriter, req *http.Request) {
