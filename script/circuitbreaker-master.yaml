@@ -1,0 +1,32 @@
+nodeName: server6
+type: master
+port: 5000
+
+maxTemperature: 25
+healthCheckIntervalSec: 43200
+circuitBreakerIntervalSec: 300
+email: ailabcircuitbreaker.dgu@gmail.com
+emailPassword: ***
+emailReceivers:
+  - 4whomtbts@gmail.com
+
+nodes:
+  - http://192.168.1.11:5000
+  - http://192.168.1.12:5000
+  - http://192.168.1.13:5000
+  - http://192.168.1.14:5000
+  - http://192.168.1.15:5000
+  - http://192.168.1.16:5000
+  - http://192.168.1.17:5000
+
+exporters:
+  - name: node_exporter
+    label: node_exporter
+    url: http://localhost:9100/metrics
+    config:
+      maxCpuTemp: 90
+  - name: dcgm_exporter
+    label: dcgm_exporter
+    url: http://localhost:9400/metrics
+    config:
+      maxGpuTemp: 90

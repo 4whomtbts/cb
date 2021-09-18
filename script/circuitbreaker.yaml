@@ -1,0 +1,15 @@
+nodeName: 210.94.223.123
+type: node
+port: 5000
+
+exporters:
+  - name: node_exporter
+    label: node_exporter
+    url: http://localhost:9100/metrics
+    config:
+      maxCpuTemp: 90
+  - name: dcgm_exporter
+    label: dcgm_exporter
+    url: http://localhost:9400/metrics
+    config:
+      maxGpuTemp: 90
